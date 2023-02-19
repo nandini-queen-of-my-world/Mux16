@@ -1,0 +1,104 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/Mux16.hdl
+
+/**
+ * 16-bit multiplexor: 
+ * for i = 0..15 out[i] = a[i] if sel == 0 
+ *                        b[i] if sel == 1
+ */
+
+CHIP Mux16 {
+    IN a[16], b[16], sel;
+    OUT out[16];
+
+    PARTS:
+    // Put your code here:
+  /*  Mux(a=a[0], b=b[0], sel=sel, out=out[0]);
+	Mux(a=a[1], b=b[1], sel=sel, out=out[1]);
+	Mux(a=a[2], b=b[2], sel=sel, out=out[2]);
+	Mux(a=a[3], b=b[3], sel=sel, out=out[3]);
+	Mux(a=a[4], b=b[4], sel=sel, out=out[4]);
+	Mux(a=a[5], b=b[5], sel=sel, out=out[5]);
+	Mux(a=a[6], b=b[6], sel=sel, out=out[6]);
+	Mux(a=a[7], b=b[7], sel=sel, out=out[7]);
+	Mux(a=a[8], b=b[8], sel=sel, out=out[8]);
+	Mux(a=a[9], b=b[9], sel=sel, out=out[9]);
+	Mux(a=a[10], b=b[10], sel=sel, out=out[10]);
+	Mux(a=a[11], b=b[11], sel=sel, out=out[11]);
+	Mux(a=a[12], b=b[12], sel=sel, out=out[12]);
+	Mux(a=a[13], b=b[13], sel=sel, out=out[13]);
+	Mux(a=a[14], b=b[14], sel=sel, out=out[14]);
+	Mux(a=a[15], b=b[15], sel=sel, out=out[15]);*/
+   
+   //Mux16 using Nand gates
+
+    Nand(a=sel,b=sel,out=oa2);
+    Nand(a=b[0],b=oa2,out=oa3);
+    Nand(a=a[0],b=sel,out=oa1);
+    Nand(a=oa3,b=oa1,out=out[0]);
+    
+    Nand(a=b[1],b=oa2,out=ob3);
+    Nand(a=a[1],b=sel,out=ob1);
+    Nand(a=ob3,b=ob1,out=out[1]);
+
+    Nand(a=b[2],b=oa2,out=oc3);
+    Nand(a=a[2],b=sel,out=oc1);
+    Nand(a=oc3,b=oc1,out=out[2]);
+
+    Nand(a=b[3],b=oa2,out=od3);
+    Nand(a=a[3],b=sel,out=od1);
+    Nand(a=od3,b=od1,out=out[3]);
+
+    Nand(a=b[4],b=oa2,out=oe3);
+    Nand(a=a[4],b=sel,out=oe1);
+    Nand(a=oe3,b=oe1,out=out[4]);
+
+    Nand(a=b[5],b=oa2,out=of3);
+    Nand(a=a[5],b=sel,out=of1);
+    Nand(a=of3,b=of1,out=out[5]);
+
+    Nand(a=b[6],b=oa2,out=og3);
+    Nand(a=a[6],b=sel,out=og1);
+    Nand(a=og3,b=og1,out=out[6]);
+
+    Nand(a=b[7],b=oa2,out=oh3);
+    Nand(a=a[7],b=sel,out=oh1);
+    Nand(a=oh3,b=oh1,out=out[7]);
+
+    Nand(a=b[8],b=oa2,out=oi3);
+    Nand(a=a[8],b=sel,out=oi1);
+    Nand(a=oi3,b=oi1,out=out[8]);
+
+    Nand(a=b[9],b=oa2,out=oj3);
+    Nand(a=a[9],b=sel,out=oj1);
+    Nand(a=oj3,b=oj1,out=out[9]);
+
+    Nand(a=b[10],b=oa2,out=ok3);
+    Nand(a=a[10],b=sel,out=ok1);
+    Nand(a=ok3,b=ok1,out=out[10]);
+
+    Nand(a=b[11],b=oa2,out=ol3);
+    Nand(a=a[11],b=sel,out=ol1);
+    Nand(a=ol3,b=ol1,out=out[11]);
+    
+    Nand(a=b[12],b=oa2,out=om3);
+    Nand(a=a[12],b=sel,out=om1);
+    Nand(a=om3,b=om1,out=out[12]);
+
+    Nand(a=b[13],b=oa2,out=on3);
+    Nand(a=a[13],b=sel,out=on1);
+    Nand(a=on3,b=on1,out=out[13]);
+    
+    Nand(a=b[14],b=oa2,out=oo3);
+    Nand(a=a[14],b=sel,out=oo1);
+    Nand(a=oo3,b=oo1,out=out[14]);
+
+    Nand(a=b[15],b=oa2,out=op3);
+    Nand(a=a[15],b=sel,out=op1);
+    Nand(a=op3,b=op1,out=out[15]);
+    
+}
+
+
